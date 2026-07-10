@@ -115,42 +115,13 @@
     </div>
 
     <script>
-        // ⚠️ REMPLACE CETTE ADRESSE PAR TON VRAI WALLET USDC POLYGON
-        const MERCHANT_WALLET = '0xe81588d0dadbf38d7065e5b86b9d5deb23803c58'; 
         
-        document.getElementById('paymentForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            
-            document.getElementById('paymentForm').classList.add('hidden');
-            document.getElementById('loading').classList.remove('hidden');
-            
-            try {
-                const response = await fetch('https://api.paygate.to/control/wallet.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        address: MERCHANT_WALLET,
-                        email: email,
-                        amount: 19,
-                        currency: 'EUR'
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (data.url) {
-                    window.location.href = data.url;
-                } else {
-                    alert('Erreur lors de la création du paiement. Veuillez réessayer.');
-                    location.reload();
-                }
-            } catch (error) {
-                console.error('Erreur:', error);
-                alert('Une erreur est survenue. Veuillez réessayer.');
-                location.reload();
-            }
-        });
+document.getElementById('paymentForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Redirection vers PayGate.to
+    window.location.href = 'https://checkout.paygate.to/pay.php?address=E9APnUXyqj5VBFcFkU8xoLZ2AqSml7ch5zYvMZei%2BjSbllkaFCp5U%2BZwexjhR0AJt1WeR%2FsHox3U3fqXCwBI%2BQ%3D%3D&amount=19&provider=hosted&email=Overbuilt6961%40pm.me&currency=USD';
+});
+
     </script>
 </body>
 </html>
