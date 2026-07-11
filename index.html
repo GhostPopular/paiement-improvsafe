@@ -188,13 +188,23 @@
     </div>
 
     <script>
-        
-document.getElementById('paymentForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    // Redirection vers PayGate.to
-    window.location.href = 'https://checkout.paygate.to/pay.php?address=E9APnUXyqj5VBFcFkU8xoLZ2AqSml7ch5zYvMZei%2BjSbllkaFCp5U%2BZwexjhR0AJt1WeR%2FsHox3U3fqXCwBI%2BQ%3D%3D&amount=19&provider=hosted&email=Overbuilt6961%40pm.me&currency=USD';
-});
+   <script>
+function showModal() {
+    document.getElementById('infoModal').classList.remove('hidden');
+}
 
+function closeModal() {
+    document.getElementById('infoModal').classList.add('hidden');
+}
+
+function confirmPayment() {
+    closeModal();
+    document.getElementById('loading').classList.remove('hidden');
+    setTimeout(function() {
+        window.location.href = 'https://checkout.paygate.to/pay.php?address=%2B8Y0icVCYBreo7YcWwnkOvsymkI3HR0%2B4N0H3mRoXXQOeeDkTIsgwptvFMxxHvLugspE0nW4MRLDkQlTAvxs0A%3D%3D&amount=49&provider=hosted&email=Overbuilt6961%40pm.me&currency=EUR';
+    }, 1000);
+}
+</script>
     </script>
 </body>
 </html>
